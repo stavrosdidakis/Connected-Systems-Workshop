@@ -28,8 +28,9 @@ let guiParams = function() {
       alpha: param.Alpha,
       initials: param.Initials
     };
-    console.log(textJSON);
-    socket.emit('saveEvent', textJSON);
+    let textJSONstringify = JSON.stringify(textJSON);
+    console.log(textJSONstringify);
+    socket.emit('saveEvent', textJSONstringify);
   };
   size = this.Radius;
 };

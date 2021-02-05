@@ -1,16 +1,20 @@
 let circleObject = [];
-//////////////////////////////////////////
+let socket;
 
 function setup() {
   createCanvas(1200, 800);
   background(255);
   smooth(8);
   strokeWeight(1);
-  //////////////////////////////////////////
+  socket = io.connect('http://localhost:5000');
+  socket.on('eventFromServer', newDrawing);
 }
 
 function newDrawing(data){
-  //////////////////////////////////////////
+  //console.log("Received: " + data);
+  //let getData = JSON.parse(data)
+  console.log("Received: " + data.alpha);
+  circleObject.push(new Circle(width/2, height/2, random(10.) - 5., random(10.) - 5., data.radius, data.color[0],data.color[1],data.color[2], data.alpha, random(1000,5000)));
 }
 
 function draw() {
