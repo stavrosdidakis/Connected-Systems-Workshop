@@ -7,8 +7,6 @@ function setup() {
   strokeWeight(1);
 }
 
-//When mouse is pressed, create new random variables
-//and assign them to the construction of the new object
 function mousePressed(){
   let speedX = random(10.) - 5.;
   let speedY = random(10.) - 5.;

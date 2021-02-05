@@ -1,20 +1,43 @@
 let circleObject = [];
-//////////////////////////////////////////
+let socket;
 
 function setup() {
   createCanvas(800, 600);
   background(255);
   smooth(8);
   strokeWeight(1);
-  //////////////////////////////////////////
+  socket = io.connect('http://localhost:5000');
+  socket.on('eventFromServer', newDrawing);
 }
 
 function newDrawing(data){
-  //////////////////////////////////////////
+  console.log(data);
+  circleObject.push(new Circle(data.xData, data.yData, data.speedXData, data.speedYData,
+    data.radiusData, data.rData, data.gData, data.bData, data.lifeData, random(100,1000)));
 }
 
 function mousePressed(){
-  //////////////////////////////////////////
+  let speedX = random(10.) - 5.;
+  let speedY = random(10.) - 5.;
+  let radiusCircle= parseInt(random(100+10));
+  let r = parseInt(random(255));
+  let g = parseInt(random(255));
+  let b = parseInt(random(255));
+  let life = parseInt(random(100,1000));
+
+  circleObject.push(new Circle(mouseX, mouseY, speedX, speedY, radiusCircle, r, g, b, life));
+  let data = {
+    xData: mouseX,
+    yData: mouseY,
+    speedXData: speedX,
+    speedYData: speedY,
+    radiusData: radiusCircle,
+    rData: r,
+    gData: g,
+    bData: b,
+    lifeData: life
+  }
+  socket.emit('eventFromClient', data);
 }
 
 function draw() {
