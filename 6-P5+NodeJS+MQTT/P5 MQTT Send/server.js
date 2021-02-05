@@ -21,11 +21,11 @@ io.sockets.on('connection', newConnection); //callback
 //Setup MQTT settings
 let options = {
   port: 1883,
-  clientId: 'client-UI',
-  username: "stavrosdee@gmail.com",
-  password: '212cebcd'
+	clientId: 'client-UI',
+  username: "nyu-ima",
+  password: "123456"
 };
-let client = mqtt.connect('mqtt://mqtt.dioty.co:8080', options);
+let client = mqtt.connect('mqtt://broker.mqttdashboard.com:8000', options);
 
 //Function that serves the new connection
 function newConnection(socket){
@@ -37,7 +37,7 @@ function newConnection(socket){
   //This function will prepare the payload, and send the MQTT message
 	function sendFunction(data){
     payload = data;
-    client.publish('/stavrosdee@gmail.com/', String(payload), function() {
+    client.publish('/nyu-ima-topic1/', String(payload), function() {
       console.log("Pushed: " + payload);
       //client.end(); // Close the connection when published
     });

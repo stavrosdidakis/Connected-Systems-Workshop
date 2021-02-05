@@ -22,19 +22,18 @@ function newConnection(socket){
 	console.log('New connection: ' + socket.id);
 }
 
-//Setup MQTT settings
 let options = {
   port: 1883,
-  clientId: 'client-Canvas',
-  username: "stavrosdee@gmail.com",
-  password: '212cebcd'
+	clientId: 'client-Canvas',
+	username: "nyu-ima",
+  password: "123456"
 };
-let client = mqtt.connect('mqtt://mqtt.dioty.co:8080', options);
+let client = mqtt.connect('mqtt://broker.mqttdashboard.com:8000', options);
 
 //MQTT Message
 client.on('connect', function() { // When connected
   //Subscribe to a topic
-  client.subscribe('/stavrosdee@gmail.com/', function() {
+  client.subscribe('/nyu-ima-topic1/', function() {
     //When a message arrives, get topic, message, packet
     client.on('message', function(topic, message, packet) {
       //console.log("Message: " + getMessage);
