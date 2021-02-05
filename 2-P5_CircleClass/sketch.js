@@ -2,6 +2,8 @@ let x, y, xMove, yMove, radius;
 let rd, grn, bl, a;
 let circleObject;
 
+//new change
+
 function setup() {
   createCanvas(800, 600);
   background(255);
