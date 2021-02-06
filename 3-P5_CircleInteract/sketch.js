@@ -4,7 +4,7 @@ function setup() {
   createCanvas(800, 600);
   background(255);
   smooth(8);
-  strokeWeight(1);
+  noStroke();
 }
 
 function mousePressed(){
@@ -50,7 +50,6 @@ class Circle{
   }
 
   drawCircle(){
-    noStroke();
     let fillcol = color(this.rd, this.grn, this.bl, this.a)
     fill(fillcol);
     ellipse(this.x, this.y, this.radius*2, this.radius*2);

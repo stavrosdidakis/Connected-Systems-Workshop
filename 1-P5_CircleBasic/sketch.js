@@ -5,7 +5,7 @@ function setup() {
   createCanvas(800, 600);
   background(255);
   smooth(8);
-  strokeWeight(1);
+  noStroke();
 
   //Setup variable - position, and speed
   x = width/2;
@@ -33,7 +33,6 @@ function draw() {
   if (y < (0-radius)) y = height+radius;
 
   //Draw content
-  noStroke();
   fillcol = color(rd, grn, bl, a)
   fill(fillcol);
   ellipse(x, y, radius*2, radius*2);

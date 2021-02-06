@@ -6,7 +6,7 @@ function setup() {
   createCanvas(800, 600);
   background(255);
   smooth(8);
-  strokeWeight(1);
+  noStroke();
 
   circleObject = new Circle (width/2, height/2, random(-5,5), random(-5,5), random(10,100), random(255), random(255), random(255));
 }
@@ -33,7 +33,6 @@ class Circle {
   }
 
   drawCircle(){
-    noStroke();
     let fillcol = color(this.rd, this.grn, this.bl, this.a)
     fill(fillcol);
     ellipse(this.x, this.y, this.radius*2, this.radius*2);

@@ -5,7 +5,6 @@ function setup() {
   createCanvas(1200, 800);
   background(255);
   smooth(8);
-  strokeWeight(1);
   socket = io.connect('http://localhost:5000');
   socket.on('eventFromServer', newDrawing);
 }
