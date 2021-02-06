@@ -37,7 +37,7 @@ function newConnection(socket){
   //This function will prepare the payload, and send the MQTT message
 	function sendFunction(data){
     payload = data;
-    client.publish('/stavrosdee@gmail.com/', String(payload), function() {
+    client.publish('/nyu-ima-topic1/', String(payload), function() {
       console.log("Pushed: " + payload);
       //client.end(); // Close the connection when published
     });
@@ -48,7 +48,7 @@ function newConnection(socket){
 //Function that runs when a message is received from MQTT (here, not used)
 client.on('connect', function() { // When connected
   //Subscribe to a topic
-  client.subscribe('/stavrosdee@gmail.com/', function() {
+  client.subscribe('/nyu-ima-topic1/', function() {
     //When a message arrives, do something with it
     //client.on('message', function(topic, message, packet) {
       //console.log("Received '" + message + "' on '" + topic + "'");

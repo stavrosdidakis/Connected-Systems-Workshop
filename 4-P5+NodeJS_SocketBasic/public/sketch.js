@@ -26,6 +26,7 @@ function mousePressed(){
   let life = parseInt(random(100,1000));
 
   circleObject.push(new Circle(mouseX, mouseY, speedX, speedY, radiusCircle, r, g, b, life));
+
   let data = {
     xData: mouseX,
     yData: mouseY,
@@ -37,6 +38,7 @@ function mousePressed(){
     bData: b,
     lifeData: life
   }
+
   socket.emit('eventFromClient', data);
 }
 
