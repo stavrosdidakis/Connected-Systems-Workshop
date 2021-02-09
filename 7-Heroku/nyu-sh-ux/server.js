@@ -1,19 +1,19 @@
-let express = require('express');
-let socket = require('socket.io');
-let mqtt = require('mqtt')
+const express = require('express');
+const socket = require('socket.io');
+const mqtt = require('mqtt')
 let payload;
 
 //Express becomes accessible through app
-let app = express();
+const app = express();
 //Create a server on localhost:5001
-let server = app.listen(process.env.PORT || 5001);
+const server = app.listen(process.env.PORT || 5001);
 //Host content as static on public
 app.use(express.static('public'));
 
 console.log("Node is running on port 5001...");
 
 //Allow server to use the socket
-let io = socket(server);
+const io = socket(server);
 //Dealing with server events / connection
 //...when a new connection is on, run the newConnection function
 io.sockets.on('connection', newConnection); //callback
@@ -25,7 +25,7 @@ let options = {
 	username: "nyu-ima",
   password: "123456"
 };
-let client = mqtt.connect('mqtt://broker.mqttdashboard.com:8000', options);
+const client = mqtt.connect('mqtt://broker.mqttdashboard.com:8000', options);
 
 //Function that serves the new connection
 function newConnection(socket){
